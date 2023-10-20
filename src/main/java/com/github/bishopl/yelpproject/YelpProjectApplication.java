@@ -1,5 +1,5 @@
 /**
- * The YelpProjectApplication class contains the runnable for the application and a test endpoing.
+ * The YelpProjectApplication class contains the runnable for the application and a test endpoint.
  * process the API responses.
  *
  * @author Bishop
