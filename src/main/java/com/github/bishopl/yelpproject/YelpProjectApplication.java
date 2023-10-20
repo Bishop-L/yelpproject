@@ -1,3 +1,11 @@
+/**
+ * The YelpService class is responsible for interacting with the Yelp Fusion API to retrieve
+ * business reviews and related data. It provides methods to fetch Yelp reviews and
+ * process the API responses.
+ *
+ * @author Bishop
+ * @version 1.0
+ */
 package com.github.bishopl.yelpproject;
 
 import org.springframework.boot.SpringApplication;
@@ -10,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class YelpProjectApplication {
 
+	/** 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(YelpProjectApplication.class, args);
 	}
