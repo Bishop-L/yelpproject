@@ -25,7 +25,12 @@ public class YelpProjectApplication {
 		SpringApplication.run(YelpProjectApplication.class, args);
 	}
 
-	//Used for simple and friendly testing of server
+	/**
+	 * An endpoint for simple and friendly testing of the server. 
+	 *
+	 * @param name The name to include in the greeting (optional).
+	 * @return A greeting message in the format "Hello {name}!" or "Hello World!" if no name is provided.
+	 */
 	@GetMapping("/hello")
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
       return String.format("Hello %s!", name);
