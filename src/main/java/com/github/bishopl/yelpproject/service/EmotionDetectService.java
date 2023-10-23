@@ -1,21 +1,19 @@
 package com.github.bishopl.yelpproject.service;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.github.bishopl.yelpproject.model.RapidApiData;
 
 
 
@@ -51,23 +49,23 @@ public class EmotionDetectService {
 
             HttpEntity<String> entity = new HttpEntity<>(jsonRequestString, headers);
 
-            ResponseEntity<String> response = restTemplate.exchange(
+            ResponseEntity<List<RapidApiData>> response = restTemplate.exchange(
                     rapidAPIURL,
                     HttpMethod.POST,
                     entity,
-                    String.class
-            );
+                    new ParameterizedTypeReference<List<RapidApiData>>() {}
+            ); 
 
-            emotionData = response.getBody();
+            emotionData = response.getBody().get(0).emotion().value();          
 
         } catch (Exception e) {
             e.printStackTrace();
             return "Error: Unable to fetch emotion data";
         }
 
-        //Return a value even if API request isn't successful
         return emotionData;
     }
+
 }
     
 
