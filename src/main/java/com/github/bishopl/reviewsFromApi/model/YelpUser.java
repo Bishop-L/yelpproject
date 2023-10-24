@@ -5,7 +5,7 @@
  * @author Bishop
  * @version 1.0
  */
-package com.github.bishopl.yelpproject.model;
+package com.github.bishopl.reviewsFromApi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

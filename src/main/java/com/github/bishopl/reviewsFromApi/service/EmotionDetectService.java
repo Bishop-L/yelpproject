@@ -5,7 +5,7 @@
  * @version 1.0
  */
 
-package com.github.bishopl.yelpproject.service;
+package com.github.bishopl.reviewsFromApi.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.github.bishopl.yelpproject.model.RapidApiData;
-import com.github.bishopl.yelpproject.model.YelpReview;
-import com.github.bishopl.yelpproject.model.YelpUser;
+import com.github.bishopl.reviewsFromApi.model.RapidApiData;
+import com.github.bishopl.reviewsFromApi.model.YelpReview;
+import com.github.bishopl.reviewsFromApi.model.YelpUser;
 
 
 @Service

@@ -5,7 +5,7 @@
  * @author Bishop
  * @version 1.0
  */
-package com.github.bishopl.yelpproject;
+package com.github.bishopl.reviewsFromApi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

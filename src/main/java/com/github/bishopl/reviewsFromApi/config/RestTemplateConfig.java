@@ -4,7 +4,7 @@
  * @author Bishop
  * @version 1.0
  */
-package com.github.bishopl.yelpproject.config;
+package com.github.bishopl.reviewsFromApi.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

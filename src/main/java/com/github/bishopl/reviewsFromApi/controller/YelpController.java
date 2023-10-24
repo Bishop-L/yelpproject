@@ -5,17 +5,18 @@
  * @author Bishop
  * @version 1.0
  */
-package com.github.bishopl.yelpproject.controller;
+package com.github.bishopl.reviewsFromApi.controller;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.github.bishopl.yelpproject.service.EmotionDetectService;
-import com.github.bishopl.yelpproject.service.YelpService;
-import com.github.bishopl.yelpproject.model.YelpReview;
+import com.github.bishopl.reviewsFromApi.model.YelpReview;
+import com.github.bishopl.reviewsFromApi.service.EmotionDetectService;
+import com.github.bishopl.reviewsFromApi.service.YelpService;
 
 @RestController
 public class YelpController {

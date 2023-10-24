@@ -8,7 +8,7 @@
  * @date 10/19/2023
  */
 
-package com.github.bishopl.yelpproject.service;
+package com.github.bishopl.reviewsFromApi.service;
 
 
 import java.net.URI;
@@ -20,7 +20,7 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import com.github.bishopl.yelpproject.model.YelpApiResponse;
+import com.github.bishopl.reviewsFromApi.model.YelpApiResponse;
 
 @Service
 public class YelpService {
