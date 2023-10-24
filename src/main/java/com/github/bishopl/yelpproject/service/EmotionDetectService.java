@@ -1,7 +1,14 @@
+/**
+ * Service for detecting emotions in images using a remote API.
+ * 
+ * @author Bishop
+ * @version 1.0
+ */
+
 package com.github.bishopl.yelpproject.service;
 
-
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -14,7 +21,8 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.bishopl.yelpproject.model.RapidApiData;
-
+import com.github.bishopl.yelpproject.model.YelpReview;
+import com.github.bishopl.yelpproject.model.YelpUser;
 
 
 @Service
@@ -24,12 +32,20 @@ public class EmotionDetectService {
     private final String rapidAPIKey;
     private final RestTemplate restTemplate;
 
+    @Autowired
     public EmotionDetectService(RestTemplate restTemplate, @Value("${rapid.api.key}") String rapidAPIKey) {
         this.rapidAPIKey = rapidAPIKey;
         this.restTemplate = restTemplate;
     }
 
-    public String fetchEmotion(String url) {
+    
+    /**
+     * Fetches emotion data for a given image URL.
+     *
+     * @param url The URL of the image to analyze for emotions.
+     * @return A string representing the detected emotion or an error message.
+     */
+    private String fetchEmotion(String url) {
         
         //Default value in case any issues in API call
         String emotionData = "Could not analyze emotion."; 
@@ -64,6 +80,21 @@ public class EmotionDetectService {
         }
 
         return emotionData;
+    }
+
+    /**
+     * Adds emotion data to each user in a list of YelpReview objects.
+     *
+     * @param reviews A list of YelpReview objects.
+     */
+    public void addEmotionData(List<YelpReview> reviews) {
+            for (YelpReview review : reviews) {
+                YelpUser user = review.user();
+                String imageUrl = user.getImage_url();
+                String emotionData = fetchEmotion(imageUrl);
+                user.setEmotionData(emotionData);
+            }
+
     }
 
 }
