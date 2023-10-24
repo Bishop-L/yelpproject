@@ -33,7 +33,7 @@ public class EmotionDetectService {
     private final RestTemplate restTemplate;
 
     @Autowired
-    public EmotionDetectService(RestTemplate restTemplate, @Value("${rapid.api.key}") String rapidAPIKey) {
+    public EmotionDetectService(RestTemplate restTemplate, @Value("${rapid.api.key:defaultApiKey}")String rapidAPIKey) {
         this.rapidAPIKey = rapidAPIKey;
         this.restTemplate = restTemplate;
     }
@@ -72,7 +72,12 @@ public class EmotionDetectService {
                     new ParameterizedTypeReference<List<RapidApiData>>() {}
             ); 
 
-            emotionData = response.getBody().get(0).emotion().value();          
+            List<RapidApiData> imageData = response.getBody();
+
+            //Ensure we have results, and only get the first one
+            if(!imageData.isEmpty()){
+                emotionData = imageData.get(0).emotion().value();  
+            }               
 
         } catch (Exception e) {
             e.printStackTrace();

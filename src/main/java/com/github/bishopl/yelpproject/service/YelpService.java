@@ -12,6 +12,8 @@ package com.github.bishopl.yelpproject.service;
 
 
 import java.net.URI;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.RequestEntity;
@@ -25,7 +27,8 @@ public class YelpService {
     private final RestTemplate restTemplate;
     private final String apiKey;
 
-    public YelpService(RestTemplate restTemplate, @Value("${yelp.api.key}") String apiKey) {
+    @Autowired
+    public YelpService(RestTemplate restTemplate, @Value("${yelp.api.key:defaultApiKey}") String apiKey) {
         this.restTemplate = restTemplate;
         this.apiKey = apiKey;
     }

@@ -9,6 +9,7 @@ package com.github.bishopl.yelpproject.controller;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,6 +22,7 @@ public class YelpController {
     private final YelpService yelpService;
     private final EmotionDetectService emoService;
 
+    @Autowired
     public YelpController(YelpService yelpService, EmotionDetectService emoService) {
         this.yelpService = yelpService;
         this.emoService = emoService;
