@@ -76,7 +76,6 @@ public class EmotionDetectService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error: Unable to fetch emotion data";
         }
 
         return emotionData;
