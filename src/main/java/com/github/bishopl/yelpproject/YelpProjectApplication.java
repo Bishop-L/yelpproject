@@ -1,6 +1,5 @@
 /**
- * The YelpService class is responsible for interacting with the Yelp Fusion API to retrieve
- * business reviews and related data. It provides methods to fetch Yelp reviews and
+ * The YelpProjectApplication class contains the runnable for the application and a test endpoint.
  * process the API responses.
  *
  * @author Bishop
@@ -32,8 +31,8 @@ public class YelpProjectApplication {
 	 * @return A greeting message in the format "Hello {name}!" or "Hello World!" if no name is provided.
 	 */
 	@GetMapping("/hello")
-    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-      return String.format("Hello %s!", name);
-    }
+	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+		return String.format("Hello %s!", name);
+	}
 
 }
